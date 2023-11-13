@@ -1,0 +1,29 @@
+.table {
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border-radius: 10px;
+    td {
+        border: none;
+        outline: none;
+    }
+    th,
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: white;
+    }
+    tr:nth-child(even) {
+        background-color: var(--content-color); /* Màu cho hàng lẻ */
+    }
+
+    tr:nth-child(odd) {
+        background-color: white; /* Màu cho hàng chẵn */
+    }
+    .first-row th {
+        border-bottom: 2px solid rgb(227, 227, 227); /* Tạo đường gạch ngang dưới chân cho hàng đầu tiên */
+    }
+}
