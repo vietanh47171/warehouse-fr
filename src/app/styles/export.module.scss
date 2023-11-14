@@ -40,7 +40,8 @@
 }
 
 .title {
-    margin: 17px 0px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     border-radius: 15px;
     text-align: center;
     h1 {
@@ -55,13 +56,14 @@
     border-collapse: collapse;
     width: 95%;
     border: solid 1px black;
+
     th,
     td {
         padding: 8px;
         text-align: center;
         border: solid 1px black;
         font-size: 18px;
-        min-width: 200px;
+        max-width: 200px;
     }
     th {
         background-color: white;
@@ -77,6 +79,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .product-export {
@@ -98,6 +101,8 @@
     font-weight: 700;
     font-size: 70px;
     position: relative;
+    margin-top: 30px;
+
     h3 {
         position: absolute;
         right: 15px;
@@ -124,5 +129,21 @@
     background-color: var(--content-color);
     &:hover {
         background-color: aqua;
+    }
+}
+
+@media (max-width: 1100px) {
+    .weight {
+        font-weight: 600;
+        font-size: 50px;
+        position: relative;
+        margin-top: 30px;
+        h3 {
+            position: absolute;
+            right: 15px;
+        }
+        p {
+            margin-left: 45px;
+        }
     }
 }
