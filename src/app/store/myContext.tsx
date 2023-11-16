@@ -8,6 +8,8 @@ import History from '../components/workspace/History';
 import ToolHistory from '../components/toolsComponents/ToolHistory';
 import ToolItemList from '../components/toolsComponents/ToolItemList';
 import DescProduct from '../components/toolsComponents/DescProduct';
+import New from '../components/workspace/New';
+import ToolNew from '../components/toolsComponents/ToolNew';
 
 const MyContext = createContext<any>(null);
 
@@ -28,6 +30,8 @@ const reducer = (state: any, action: any) => {
             return { pageIndex: 4, title: 'Export', component: <Export />, toolComponent: <DescProduct /> };
         case 'HISTORY':
             return { pageIndex: 5, title: 'History', component: <History />, toolComponent: <ToolHistory /> };
+        case 'NEW':
+            return { pageIndex: 6, title: 'New', component: <New />, toolComponent: <ToolNew /> };
         default:
             return state;
     }

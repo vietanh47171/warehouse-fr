@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
 :root {
     --primary-color: rgb(32, 53, 96);
     --orange-main: rgb(232, 118, 5);
@@ -13,7 +18,7 @@
 
 .content {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--content-color);
     padding-top: 90px;
     display: flex;
@@ -21,6 +26,7 @@
 .tools {
     width: 20%;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .main-tools {
@@ -32,6 +38,7 @@
     width: 80%;
     background: url('/assets/img/2.jpg') no-repeat center / cover;
     padding: 25px;
+    min-height: 100vh;
 }
 
 .work-space-title {

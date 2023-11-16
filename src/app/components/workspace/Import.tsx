@@ -76,8 +76,6 @@ const Import = () => {
                 console.error('Lỗi khi gửi yêu cầu PATCH:', error);
             }
         }
-        patchData();
-        fetchDataId(apiIdData._id);
 
         async function postHistoryData() {
             try {
@@ -101,19 +99,34 @@ const Import = () => {
             }
         }
 
-        toast.success('🦄 Đã cập nhật giao dịch thành công và lưu lại trong lịch sử !', {
-            position: 'top-center',
-            autoClose: 8000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: 'colored',
-        });
+        if (weight > 2) {
+            toast.success('🦄 Đã cập nhật giao dịch thành công và lưu lại trong lịch sử !', {
+                position: 'top-center',
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'colored',
+            });
+            postHistoryData();
+            patchData();
+            fetchDataId(apiIdData._id);
+        } else {
+            toast.error('🦄 Cân nặng không hợp lệ !', {
+                position: 'top-center',
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'colored',
+            });
+        }
+
         e.preventDefault();
-        console.log(historyData);
-        postHistoryData();
     };
 
     //Lấy data theo id

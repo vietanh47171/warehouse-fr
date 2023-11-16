@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { useState, useEffect, useContext } from 'react';
 import dynamic from 'next/dynamic';
 import { sortByContext } from '@/app/store/mySortBy';
+import { Pencil } from 'lucide-react';
 
 const cx = classNames.bind(styles);
 
@@ -103,7 +104,11 @@ const ItemList = () => {
                                       <td>{item.quantity}</td>
                                       <td>{item.price.toLocaleString('vi-VN')}</td>
                                       <td>{(item.quantity * item.price).toLocaleString('vi-VN')}</td>
-                                      <td>sửa</td>
+                                      <td>
+                                          <div>
+                                              <Pencil strokeWidth={1} />
+                                          </div>
+                                      </td>
                                   </tr>
                               );
                           })

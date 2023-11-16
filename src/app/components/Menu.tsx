@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames/bind';
 import page from '../styles/menu.module.scss';
-import { ArrowRightFromLine, Download, History, LayoutDashboard, List } from 'lucide-react';
+import { ArrowRightFromLine, Download, History, LayoutDashboard, List, PlusCircle } from 'lucide-react';
 import { useState, useEffect, useContext } from 'react';
 import { useMyContext } from '../store/myContext';
 import { sortByContext } from '@/app/store/mySortBy';
@@ -46,12 +46,20 @@ const Menu = () => {
                         <Download size={30} strokeWidth={3} />
                         <p>Import</p>
                     </div>
+
                     <div
                         className={state.pageIndex === 4 ? cx('export', 'active') : cx('export')}
                         onClick={() => dispatch({ type: 'EXPORT' })}
                     >
                         <ArrowRightFromLine size={30} strokeWidth={3} />
                         <p>Export</p>
+                    </div>
+                    <div
+                        className={state.pageIndex === 6 ? cx('new', 'active') : cx('new')}
+                        onClick={() => dispatch({ type: 'NEW' })}
+                    >
+                        <PlusCircle size={30} strokeWidth={3} />
+                        <p>New</p>
                     </div>
                     <div
                         className={state.pageIndex === 5 ? cx('history', 'active') : cx('history')}

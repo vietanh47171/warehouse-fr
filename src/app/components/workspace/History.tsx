@@ -2,6 +2,7 @@ import styles from '@/app/styles/history.module.scss';
 import classNames from 'classnames/bind';
 import { useState, useEffect, useContext } from 'react';
 import { sortByContext } from '@/app/store/mySortBy';
+import { Pencil } from 'lucide-react';
 
 const cx = classNames.bind(styles);
 
@@ -104,7 +105,11 @@ const History = () => {
                                           <td>{item.quantity}</td>
                                           <td>{item.price.toLocaleString('vi-VN')}</td>
                                           <td>{(item.quantity * item.price).toLocaleString('vi-VN')}</td>
-                                          <td>sửa</td>
+                                          <td>
+                                              <div>
+                                                  <Pencil strokeWidth="1" />
+                                              </div>
+                                          </td>
                                       </tr>
                                   );
                               } else {
@@ -116,7 +121,11 @@ const History = () => {
                                           <td>{item.quantity}</td>
                                           <td>{item.price.toLocaleString('vi-VN')}</td>
                                           <td>{(item.quantity * item.price).toLocaleString('vi-VN')}</td>
-                                          <td>sửa</td>
+                                          <td>
+                                              <div>
+                                                  <Pencil strokeWidth="1" />
+                                              </div>
+                                          </td>
                                       </tr>
                                   );
                               }

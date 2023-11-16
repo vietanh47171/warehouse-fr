@@ -1,4 +1,4 @@
-.export {
+.import {
     display: flex;
 }
 
@@ -81,7 +81,7 @@
     }
 }
 
-.product-export {
+.product-import {
     width: 50%;
     display: flex;
     flex-wrap: wrap;
@@ -110,13 +110,13 @@
     }
 }
 
-.export-btn-container {
+.import-btn-container {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.export-btn {
+.import-btn {
     outline: none;
     cursor: pointer;
     border: solid 1px #7d7672;
