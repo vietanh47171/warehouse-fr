@@ -1,15 +1,17 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from '@/app/styles/export.module.scss';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import Scale from '../utilsComponents/Scale';
+import { productApiDataContext } from '@/app/store/myProduct';
 
 const cx = classNames.bind(styles);
 
 const Export = () => {
     const [weight, setWeight] = useState(0);
     const [product, setProduct] = useState('rice');
+    const { productApiData, setProductApiData } = useContext(productApiDataContext);
     const [apiData, setApiData] = useState<any | null>(null);
     const [apiIdData, setApiIdData] = useState({
         _id: 'loading',
@@ -111,7 +113,7 @@ const Export = () => {
             fetchDataId(apiIdData._id);
             postHistoryData();
         } else {
-            toast.error('🦄 Cân nặng không hợp lệ theo yêu cầu ( weight < 2kg) !', {
+            toast.error('🦄 Cân nặng không hợp lệ theo yêu cầu ( weight > 2kg) !', {
                 position: 'top-center',
                 autoClose: 8000,
                 hideProgressBar: false,
@@ -140,6 +142,7 @@ const Export = () => {
             }
             const jsonData = await response.json();
             setApiIdData(jsonData);
+            setProductApiData(jsonData);
         } catch (error) {
             console.error('Lỗi khi gọi API:', error);
         }

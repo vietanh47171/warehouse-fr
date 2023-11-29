@@ -4,6 +4,7 @@
     border-spacing: 0;
     width: 100%;
     border-radius: 10px;
+    position: relative;
     td {
         border: none;
         outline: none;
@@ -12,6 +13,9 @@
     td {
         padding: 8px;
         text-align: center;
+        div {
+            cursor: pointer;
+        }
     }
     th {
         background-color: white;
@@ -25,5 +29,32 @@
     }
     .first-row th {
         border-bottom: 2px solid rgb(227, 227, 227); /* Tạo đường gạch ngang dưới chân cho hàng đầu tiên */
+    }
+}
+
+.change-price {
+    position: absolute;
+    min-width: 400px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    border-radius: 6px;
+    text-align: center;
+    div {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        padding: 3px;
+        cursor: pointer;
+    }
+    h2 {
+        margin: 10px 0px;
+    }
+    button {
+        outline: none;
+        padding: 10px;
     }
 }
