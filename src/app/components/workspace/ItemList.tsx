@@ -180,7 +180,7 @@ const ItemList = () => {
                                   <tr key={item._id}>
                                       <td>{index + 1}</td>
                                       <td>{item.vietnameseName}</td>
-                                      <td>{item.quantity}</td>
+                                      <td>{Number(item.quantity).toFixed(2)}</td>
                                       <td>{item.price.toLocaleString('vi-VN')}</td>
                                       <td>{(item.quantity * item.price).toLocaleString('vi-VN')}</td>
                                       <td>

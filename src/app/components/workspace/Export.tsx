@@ -98,7 +98,7 @@ const Export = () => {
             }
         }
 
-        if (weight > 2) {
+        if (weight > 0.5) {
             toast.success('🦄 Đã cập nhật giao dịch thành công và lưu lại trong lịch sử !', {
                 position: 'top-center',
                 autoClose: 8000,
@@ -113,7 +113,7 @@ const Export = () => {
             fetchDataId(apiIdData._id);
             postHistoryData();
         } else {
-            toast.error('🦄 Cân nặng không hợp lệ theo yêu cầu ( weight > 2kg) !', {
+            toast.error('🦄 Cân nặng không hợp lệ theo yêu cầu ( weight > 0.5kg) !', {
                 position: 'top-center',
                 autoClose: 8000,
                 hideProgressBar: false,
@@ -184,14 +184,12 @@ const Export = () => {
                         </label>
                         <select onChange={handleSelectChange} className={cx('input-product')}>
                             <optgroup label="Foods">
-                                <option value="rice">Rice</option>
-                                <option value="wheat">Wheat</option>
-                                <option value="potato">Potato</option>
-                                <option value="sweetpotato">Sweet Potato</option>
-                                <option value="oat">Oat</option>
-                                <option value="cassava">Cassava</option>
+                                {apiData
+                                    ? apiData.map((item: any) => {
+                                          return <option value={item.name}>{item.name.toUpperCase()}</option>;
+                                      })
+                                    : undefined}
                             </optgroup>
-                            <optgroup label="Fruits"></optgroup>
                         </select>
                     </div>
                     <div className={cx('product-container')}>
@@ -203,7 +201,7 @@ const Export = () => {
                                 <tbody>
                                     <tr>
                                         <th>Remaining Goods(kg)</th>
-                                        <td>{apiIdData.quantity} kg</td>
+                                        <td>{Number(apiIdData.quantity).toFixed(2)} kg</td>
                                     </tr>
                                     <tr>
                                         <th>Price (vnd/kg)</th>
@@ -227,7 +225,16 @@ const Export = () => {
                 </form>
             </div>
             <div className={cx('main-img')}>
-                <img src={`assets/productImg/${product}.jpg`} alt="" />
+                {product === 'rice' ||
+                product === 'potato' ||
+                product === 'cassava' ||
+                product === 'sweetpotato' ||
+                product === 'wheat' ||
+                product === 'oat' ? (
+                    <img src={`assets/productImg/${product}.jpg`} alt="" />
+                ) : (
+                    <img src={productApiData.img} alt="" />
+                )}
             </div>
         </div>
     );

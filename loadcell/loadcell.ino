@@ -1,11 +1,11 @@
+#include <LiquidCrystal_I2C.h>
 #include "HX711.h"
 #include <ESP8266WiFi.h>
 #include <String.h>
-#include <LiquidCrystal_I2C.h>
 #include <PubSubClient.h>
 
-#define wifi_ssid  "204deptrai"
-#define wifi_password  "dinhnhatptit"
+#define wifi_ssid  "VietAnh"
+#define wifi_password  "123456789"
 #define mqtt_server "broker.mqttdashboard.com"
 #define mqtt_user "thuy"
 #define mqtt_password "123456"

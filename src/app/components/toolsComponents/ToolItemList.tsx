@@ -81,6 +81,7 @@ const ToolItemList = () => {
                                 Quantity
                             </button>
                         </div>
+                        <p>*Double-click to exit the sort tool*</p>
                     </div>
                 </div>
             </div>

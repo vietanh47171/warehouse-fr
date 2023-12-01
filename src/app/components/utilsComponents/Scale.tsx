@@ -7,7 +7,7 @@ import * as io from 'socket.io-client';
 const cx = classNames.bind(styles);
 
 const Scale = ({ onWeightChange }: { onWeightChange: Function }) => {
-    const [weight, setWeight] = useState(0);
+    const [weight, setWeight] = useState<number>(0);
 
     useEffect(() => {
         // Kết nối tới máy chủ Socket.IO
@@ -15,9 +15,14 @@ const Scale = ({ onWeightChange }: { onWeightChange: Function }) => {
 
         // Lắng nghe sự kiện từ máy chủ
         socket.on('updateSensor', (data: any) => {
-            console.log('Data from backend:', typeof data[0]);
-            setWeight(data);
-            onWeightChange(Number(data));
+            let numberWeight: number = 0;
+            if (Number(data) < 0) {
+                setWeight(0);
+            } else {
+                numberWeight = Number(data) / 1000;
+                setWeight(Number(numberWeight.toFixed(2)));
+                onWeightChange(Number(numberWeight.toFixed(2)));
+            }
         });
 
         // Cleanup khi component unmount
